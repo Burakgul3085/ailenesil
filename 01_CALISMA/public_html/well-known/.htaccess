@@ -1,0 +1,246 @@
+RewriteEngine on
+ErrorDocument 404 /404.html
+
+# --- SITEMAP ---
+RewriteRule ^(en|ar)/sitemap\.xml$ sitemap.php?lang=$1 [NC,L]
+RewriteRule ^sitemap\.xml$ sitemap.php [NC,L]
+
+# --- DİL ÖNEKLİ KURALLAR (en|ar) ---
+# Bu bölümdeki kurallar URL başında /en/ veya /ar/ olduğunda çalışır.
+
+RewriteRule ^(en|ar)/([a-zA-Z0-9\-_]+)\.html$ index.php?lang=$1&sayfa=$2 [L,QSA]
+RewriteRule ^(en|ar)/([a-zA-Z0-9\-_]+)(/?)$ index.php?lang=$1&sayfa=$2 [L,QSA]
+RewriteRule ^(en|ar)/icerik/(.*)\.html$ index.php?lang=$1&sayfa=icerik&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/icerik/(.*?)$ index.php?lang=$1&sayfa=icerik&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/haber-kategori/(.*)\.html$ index.php?lang=$1&sayfa=haber-kategori&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/haber-kategori/(.*?)$ index.php?lang=$1&sayfa=haber-kategori&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/haber/(.*)\.html$ index.php?lang=$1&sayfa=haber&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/haber/(.*?)$ index.php?lang=$1&sayfa=haber&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/haber-kategori-(.*)/(.*)\.html$ index.php?lang=$1&sayfa=haber-kategori&id=$2&s=$3 [L,QSA]
+RewriteRule ^(en|ar)/haber-kategori-(.*?)/(.*?)$ index.php?lang=$1&sayfa=haber-kategori&id=$2&s=$3 [L,QSA]
+RewriteRule ^(en|ar)/haberler/(.*)\.html$ index.php?lang=$1&sayfa=haberler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/haberler/(.*?)$ index.php?lang=$1&sayfa=haberler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/proje-kategori/(.*)\.html$ index.php?lang=$1&sayfa=proje-kategori&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/proje-kategori/(.*?)$ index.php?lang=$1&sayfa=proje-kategori&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/proje/(.*)\.html$ index.php?lang=$1&sayfa=proje&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/proje/(.*?)$ index.php?lang=$1&sayfa=proje&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/proje-kategori-(.*)/(.*)\.html$ index.php?lang=$1&sayfa=proje-kategori&id=$2&s=$3 [L,QSA]
+RewriteRule ^(en|ar)/proje-kategori-(.*?)/(.*?)$ index.php?lang=$1&sayfa=proje-kategori&id=$2&s=$3 [L,QSA]
+RewriteRule ^(en|ar)/projeler/(.*)\.html$ index.php?lang=$1&sayfa=projeler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/projeler/(.*?)$ index.php?lang=$1&sayfa=projeler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/hizmetler/(.*)\.html$ index.php?lang=$1&sayfa=hizmetler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/hizmetler/(.*?)$ index.php?lang=$1&sayfa=hizmetler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/hizmet/(.*)\.html$ index.php?lang=$1&sayfa=hizmet&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/hizmet/(.*?)$ index.php?lang=$1&sayfa=hizmet&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/birimler/(.*)\.html$ index.php?lang=$1&sayfa=birimler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/birimler/(.*?)$ index.php?lang=$1&sayfa=birimler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/birim/(.*)\.html$ index.php?lang=$1&sayfa=birim&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/birim/(.*?)$ index.php?lang=$1&sayfa=birim&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/foto-galeri/(.*)\.html$ index.php?lang=$1&sayfa=foto-galeri&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/foto-galeri/(.*?)$ index.php?lang=$1&sayfa=foto-galeri&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/foto/(.*)\.html$ index.php?lang=$1&sayfa=foto&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/foto/(.*?)$ index.php?lang=$1&sayfa=foto&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/video-galeri/(.*)\.html$ index.php?lang=$1&sayfa=video-galeri&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/video-galeri/(.*?)$ index.php?lang=$1&sayfa=video-galeri&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/video/(.*)\.html$ index.php?lang=$1&sayfa=video&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/video/(.*?)$ index.php?lang=$1&sayfa=video&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/etkinlikler/(.*)\.html$ index.php?lang=$1&sayfa=etkinlikler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/etkinlikler/(.*?)$ index.php?lang=$1&sayfa=etkinlikler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/etkinlik/(.*)\.html$ index.php?lang=$1&sayfa=etkinlik&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/etkinlik/(.*?)$ index.php?lang=$1&sayfa=etkinlik&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/duyurular/(.*)\.html$ index.php?lang=$1&sayfa=duyurular&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/duyurular/(.*?)$ index.php?lang=$1&sayfa=duyurular&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/duyuru/(.*)\.html$ index.php?lang=$1&sayfa=duyuru&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/duyuru/(.*?)$ index.php?lang=$1&sayfa=duyuru&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/ihaleler/(.*)\.html$ index.php?lang=$1&sayfa=ihaleler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/ihaleler/(.*?)$ index.php?lang=$1&sayfa=ihaleler&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/ihale/(.*)\.html$ index.php?lang=$1&sayfa=ihale&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/ihale/(.*?)$ index.php?lang=$1&sayfa=ihale&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/ilanlar/(.*)\.html$ index.php?lang=$1&sayfa=ilanlar&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/ilanlar/(.*?)$ index.php?lang=$1&sayfa=ilanlar&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/ilan/(.*)\.html$ index.php?lang=$1&sayfa=ilan&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/ilan/(.*?)$ index.php?lang=$1&sayfa=ilan&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/meclis-kararlari/(.*)\.html$ index.php?lang=$1&sayfa=meclis-kararlari&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/meclis-kararlari/(.*?)$ index.php?lang=$1&sayfa=meclis-kararlari&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/karar/(.*)\.html$ index.php?lang=$1&sayfa=karar&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/karar/(.*?)$ index.php?lang=$1&sayfa=karar&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/faaliyet-raporlari/(.*)\.html$ index.php?lang=$1&sayfa=faaliyet-raporlari&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/faaliyet-raporlari/(.*?)$ index.php?lang=$1&sayfa=faaliyet-raporlari&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/rapor/(.*)\.html$ index.php?lang=$1&sayfa=rapor&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/rapor/(.*?)$ index.php?lang=$1&sayfa=rapor&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/profil-kategori/(.*)\.html$ index.php?lang=$1&sayfa=profil-kategori&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/profil-kategori/(.*?)$ index.php?lang=$1&sayfa=profil-kategori&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/profil/(.*)\.html$ index.php?lang=$1&sayfa=profil&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/profil/(.*?)$ index.php?lang=$1&sayfa=profil&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/profil-kategori-(.*)/(.*)\.html$ index.php?lang=$1&sayfa=profil-kategori&id=$2&s=$3 [L,QSA]
+RewriteRule ^(en|ar)/profil-kategori-(.*?)/(.*?)$ index.php?lang=$1&sayfa=profil-kategori&id=$2&s=$3 [L,QSA]
+RewriteRule ^(en|ar)/aidat-odeme/(.*)\.html$ index.php?lang=$1&sayfa=aidat-odeme&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/aidat-odeme/(.*?)$ index.php?lang=$1&sayfa=aidat-odeme&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/programlar/(.*)\.html$ index.php?lang=$1&sayfa=programlar&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/programlar/(.*?)$ index.php?lang=$1&sayfa=programlar&s=$2 [L,QSA]
+RewriteRule ^(en|ar)/program-detay/(.*)\.html$ index.php?lang=$1&sayfa=program-detay&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/program-detay/(.*?)$ index.php?lang=$1&sayfa=program-detay&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/bagis-moduller\.html$ index.php?lang=$1&sayfa=bagis-moduller [L,QSA]
+RewriteRule ^(en|ar)/bagis-moduller(/?)$ index.php?lang=$1&sayfa=bagis-moduller [L,QSA]
+RewriteRule ^(en|ar)/bagis-sonuc\.html$ index.php?lang=$1&sayfa=bagis-sonuc [L,QSA]
+RewriteRule ^(en|ar)/bagis-sonuc(/?)$ index.php?lang=$1&sayfa=bagis-sonuc [L,QSA]
+RewriteRule ^(en|ar)/bagis-odeme\.html$ index.php?lang=$1&sayfa=bagis-odeme [L,QSA]
+RewriteRule ^(en|ar)/bagis-odeme(/?)$ index.php?lang=$1&sayfa=bagis-odeme [L,QSA]
+RewriteRule ^(en|ar)/bagis-detay/(.*)\.html$ index.php?lang=$1&sayfa=bagis-detay&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/bagis-detay/(.*?)$ index.php?lang=$1&sayfa=bagis-detay&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/bagis-kampanya/(.*)\.html$ index.php?lang=$1&sayfa=bagis-kampanya&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/bagis-kampanya/(.*?)$ index.php?lang=$1&sayfa=bagis-kampanya&id=$2 [L,QSA]
+RewriteRule ^(en|ar)/bagis/(.*)\.html$ index.php?lang=$1&sayfa=bagis&kategori=$2 [L,QSA]
+RewriteRule ^(en|ar)/bagis/(.*?)$ index.php?lang=$1&sayfa=bagis&kategori=$2 [L,QSA]
+RewriteRule ^(en|ar)/hesap-numaralarimiz\.html$ index.php?lang=$1&sayfa=hesap-numaralarimiz [L,QSA]
+RewriteRule ^(en|ar)/hesap-numaralarimiz(/?)$ index.php?lang=$1&sayfa=hesap-numaralarimiz [L,QSA]
+RewriteRule ^(en|ar)/okullar\.html$ index.php?lang=$1&sayfa=okullar [L,QSA]
+RewriteRule ^(en|ar)/okullar(/?)$ index.php?lang=$1&sayfa=okullar [L,QSA]
+RewriteRule ^(en|ar)/faaliyetler-deneyim\.html$ index.php?lang=$1&sayfa=faaliyetler-deneyim [L,QSA]
+RewriteRule ^(en|ar)/faaliyetler-deneyim(/?)$ index.php?lang=$1&sayfa=faaliyetler-deneyim [L,QSA]
+RewriteRule ^(en|ar)/ogrenme-deneyimi/(.*)\.html$ index.php?lang=$1&sayfa=ogrenme-deneyimi&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/ogrenme-deneyimi/(.*?)$ index.php?lang=$1&sayfa=ogrenme-deneyimi&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/destekleme-yollari\.html$ index.php?lang=$1&sayfa=destekleme-yollari [L,QSA]
+RewriteRule ^(en|ar)/destekleme-yollari(/?)$ index.php?lang=$1&sayfa=destekleme-yollari [L,QSA]
+RewriteRule ^(en|ar)/destekleme-yolu/(.*)\.html$ index.php?lang=$1&sayfa=destekleme-yolu&seo=$2 [L,QSA]
+RewriteRule ^(en|ar)/destekleme-yolu/(.*?)$ index.php?lang=$1&sayfa=destekleme-yolu&seo=$2 [L,QSA]
+
+# --- STANDART KURALLAR (Dil Öneki Olmayan Orijinal Liste) ---
+# Buradan sonrası sizin attığınız orijinal listenin aynısıdır.
+
+RewriteRule ^([a-zA-Z0-9\-_]+).html$ index.php?sayfa=$1 [L,QSA]
+RewriteRule ^([a-zA-Z0-9\-_]+)(/?)$ index.php?sayfa=$1 [L,QSA]
+RewriteRule ^icerik/(.*).html$ index.php?sayfa=icerik&id=$1 [L,QSA]
+RewriteRule ^icerik/(.*?)$ index.php?sayfa=icerik&id=$1 [L,QSA]
+RewriteRule ^haber-kategori/(.*).html$ index.php?sayfa=haber-kategori&id=$1 [L,QSA]
+RewriteRule ^haber-kategori/(.*?)$ index.php?sayfa=haber-kategori&id=$1 [L,QSA]
+RewriteRule ^haber/(.*).html$ index.php?sayfa=haber&id=$1 [L,QSA]
+RewriteRule ^haber/(.*?)$ index.php?sayfa=haber&id=$1 [L,QSA]
+RewriteRule ^haber-kategori-(.*)/(.*).html$ index.php?sayfa=haber-kategori&id=$1&s=$2 [L,QSA]
+RewriteRule ^haber-kategori-(.*?)/(.*?)$ index.php?sayfa=haber-kategori&id=$1&s=$2 [L,QSA]
+RewriteRule ^haberler/(.*).html$ index.php?sayfa=haberler&s=$1 [L,QSA]
+RewriteRule ^haberler/(.*?)$ index.php?sayfa=haberler&s=$1 [L,QSA]
+RewriteRule ^proje-kategori/(.*).html$ index.php?sayfa=proje-kategori&id=$1 [L,QSA]
+RewriteRule ^proje-kategori/(.*?)$ index.php?sayfa=proje-kategori&id=$1 [L,QSA]
+RewriteRule ^proje/(.*).html$ index.php?sayfa=proje&id=$1 [L,QSA]
+RewriteRule ^proje/(.*?)$ index.php?sayfa=proje&id=$1 [L,QSA]
+RewriteRule ^proje-kategori-(.*)/(.*).html$ index.php?sayfa=proje-kategori&id=$1&s=$2 [L,QSA]
+RewriteRule ^proje-kategori-(.*?)/(.*?)$ index.php?sayfa=proje-kategori&id=$1&s=$2 [L,QSA]
+RewriteRule ^projeler/(.*).html$ index.php?sayfa=projeler&s=$1 [L,QSA]
+RewriteRule ^projeler/(.*?)$ index.php?sayfa=projeler&s=$1 [L,QSA]
+RewriteRule ^hizmetler/(.*).html$ index.php?sayfa=hizmetler&s=$1 [L,QSA]
+RewriteRule ^hizmetler/(.*?)$ index.php?sayfa=hizmetler&s=$1 [L,QSA]
+RewriteRule ^hizmet/(.*).html$ index.php?sayfa=hizmet&id=$1 [L,QSA]
+RewriteRule ^hizmet/(.*?)$ index.php?sayfa=hizmet&id=$1 [L,QSA]
+RewriteRule ^birimler/(.*).html$ index.php?sayfa=birimler&s=$1 [L,QSA]
+RewriteRule ^birimler/(.*?)$ index.php?sayfa=birimler&s=$1 [L,QSA]
+RewriteRule ^birim/(.*).html$ index.php?sayfa=birim&id=$1 [L,QSA]
+RewriteRule ^birim/(.*?)$ index.php?sayfa=birim&id=$1 [L,QSA]
+RewriteRule ^foto-galeri/(.*).html$ index.php?sayfa=foto-galeri&s=$1 [L,QSA]
+RewriteRule ^foto-galeri/(.*?)$ index.php?sayfa=foto-galeri&s=$1 [L,QSA]
+RewriteRule ^foto/(.*).html$ index.php?sayfa=foto&id=$1 [L,QSA]
+RewriteRule ^foto/(.*?)$ index.php?sayfa=foto&id=$1 [L,QSA]
+RewriteRule ^video-galeri/(.*).html$ index.php?sayfa=video-galeri&s=$1 [L,QSA]
+RewriteRule ^video-galeri/(.*?)$ index.php?sayfa=video-galeri&s=$1 [L,QSA]
+RewriteRule ^video/(.*).html$ index.php?sayfa=video&id=$1 [L,QSA]
+RewriteRule ^video/(.*?)$ index.php?sayfa=video&id=$1 [L,QSA]
+RewriteRule ^dosyalarimiz/(.*).html$ index.php?sayfa=dosyalarimiz&s=$1 [L,QSA]
+RewriteRule ^dosyalarimiz/(.*?)$ index.php?sayfa=dosyalarimiz&s=$1 [L,QSA]
+RewriteRule ^etkinlikler/(.*).html$ index.php?sayfa=etkinlikler&s=$1 [L,QSA]
+RewriteRule ^etkinlikler/(.*?)$ index.php?sayfa=etkinlikler&s=$1 [L,QSA]
+RewriteRule ^etkinlik/(.*).html$ index.php?sayfa=etkinlik&id=$1 [L,QSA]
+RewriteRule ^etkinlik/(.*?)$ index.php?sayfa=etkinlik&id=$1 [L,QSA]
+RewriteRule ^duyurular/(.*).html$ index.php?sayfa=duyurular&s=$1 [L,QSA]
+RewriteRule ^duyurular/(.*?)$ index.php?sayfa=duyurular&s=$1 [L,QSA] 
+RewriteRule ^duyuru/(.*).html$ index.php?sayfa=duyuru&id=$1 [L,QSA]
+RewriteRule ^duyuru/(.*?)$ index.php?sayfa=duyuru&id=$1 [L,QSA]
+RewriteRule ^ihaleler/(.*).html$ index.php?sayfa=ihaleler&s=$1 [L,QSA]
+RewriteRule ^ihaleler/(.*?)$ index.php?sayfa=ihaleler&s=$1 [L,QSA]
+RewriteRule ^ihale/(.*).html$ index.php?sayfa=ihale&id=$1 [L,QSA]
+RewriteRule ^ihale/(.*?)$ index.php?sayfa=ihale&id=$1 [L,QSA]
+RewriteRule ^ilanlar/(.*).html$ index.php?sayfa=ilanlar&s=$1 [L,QSA]
+RewriteRule ^ilanlar/(.*?)$ index.php?sayfa=ilanlar&s=$1 [L,QSA]
+RewriteRule ^ilan/(.*).html$ index.php?sayfa=ilan&id=$1 [L,QSA]
+RewriteRule ^ilan/(.*?)$ index.php?sayfa=ilan&id=$1 [L,QSA]
+RewriteRule ^meclis-kararlari/(.*).html$ index.php?sayfa=meclis-kararlari&s=$1 [L,QSA]
+RewriteRule ^meclis-kararlari/(.*?)$ index.php?sayfa=meclis-kararlari&s=$1 [L,QSA]
+RewriteRule ^karar/(.*).html$ index.php?sayfa=karar&id=$1 [L,QSA]
+RewriteRule ^karar/(.*?)$ index.php?sayfa=karar&id=$1 [L,QSA]
+RewriteRule ^faaliyet-raporlari/(.*).html$ index.php?sayfa=faaliyet-raporlari&s=$1 [L,QSA]
+RewriteRule ^faaliyet-raporlari/(.*?)$ index.php?sayfa=faaliyet-raporlari&s=$1 [L,QSA]
+RewriteRule ^rapor/(.*).html$ index.php?sayfa=rapor&id=$1 [L,QSA]
+RewriteRule ^rapor/(.*?)$ index.php?sayfa=rapor&id=$1 [L,QSA]
+RewriteRule ^profil-kategori/(.*).html$ index.php?sayfa=profil-kategori&id=$1 [L,QSA]
+RewriteRule ^profil-kategori/(.*?)$ index.php?sayfa=profil-kategori&id=$1 [L,QSA]
+RewriteRule ^profil/(.*).html$ index.php?sayfa=profil&id=$1 [L,QSA]
+RewriteRule ^profil/(.*?)$ index.php?sayfa=profil&id=$1 [L,QSA]
+RewriteRule ^profil-kategori-(.*)/(.*).html$ index.php?sayfa=profil-kategori&id=$1&s=$2 [L,QSA]
+RewriteRule ^profil-kategori-(.*?)/(.*?)$ index.php?sayfa=profil-kategori&id=$1&s=$2 [L,QSA]
+RewriteRule ^aidat-odeme/(.*).html$ index.php?sayfa=aidat-odeme&id=$1 [L,QSA]
+RewriteRule ^aidat-odeme/(.*?)$ index.php?sayfa=aidat-odeme&id=$1 [L,QSA]
+RewriteRule ^programlar/(.*).html$ index.php?sayfa=programlar&s=$1 [L,QSA]
+RewriteRule ^programlar/(.*?)$ index.php?sayfa=programlar&s=$1 [L,QSA]
+RewriteRule ^program-detay/(.*).html$ index.php?sayfa=program-detay&seo=$1 [L,QSA]
+RewriteRule ^program-detay/(.*?)$ index.php?sayfa=program-detay&seo=$1 [L,QSA]
+RewriteRule ^bagis-moduller.html$ index.php?sayfa=bagis-moduller [L,QSA]
+RewriteRule ^bagis-moduller(/?)$ index.php?sayfa=bagis-moduller [L,QSA]
+RewriteRule ^bagis-sonuc\.html$ index.php?sayfa=bagis-sonuc [L,QSA]
+RewriteRule ^bagis-sonuc(/?)$ index.php?sayfa=bagis-sonuc [L,QSA]
+RewriteRule ^bagis-odeme\.html$ index.php?sayfa=bagis-odeme [L,QSA]
+RewriteRule ^bagis-odeme(/?)$ index.php?sayfa=bagis-odeme [L,QSA]
+RewriteRule ^bagis-detay/(.*).html$ index.php?sayfa=bagis-detay&seo=$1 [L,QSA]
+RewriteRule ^bagis-detay/(.*?)$ index.php?sayfa=bagis-detay&seo=$1 [L,QSA]
+RewriteRule ^bagis-kampanya/(.*).html$ index.php?sayfa=bagis-kampanya&id=$1 [L,QSA]
+RewriteRule ^bagis-kampanya/(.*?)$ index.php?sayfa=bagis-kampanya&id=$1 [L,QSA]
+RewriteRule ^bagis/(.*).html$ index.php?sayfa=bagis&kategori=$1 [L,QSA]
+RewriteRule ^bagis/(.*?)$ index.php?sayfa=bagis&kategori=$1 [L,QSA]
+RewriteRule ^hesap-numaralarimiz.html$ index.php?sayfa=hesap-numaralarimiz [L,QSA]
+RewriteRule ^hesap-numaralarimiz(/?)$ index.php?sayfa=hesap-numaralarimiz [L,QSA]
+RewriteRule ^okullar.html$ index.php?sayfa=okullar [L,QSA]
+RewriteRule ^okullar(/?)$ index.php?sayfa=okullar [L,QSA]
+RewriteRule ^faaliyetler-deneyim.html$ index.php?sayfa=faaliyetler-deneyim [L,QSA]
+RewriteRule ^faaliyetler-deneyim(/?)$ index.php?sayfa=faaliyetler-deneyim [L,QSA]
+RewriteRule ^ogrenme-deneyimi/(.*).html$ index.php?sayfa=ogrenme-deneyimi&seo=$1 [L,QSA]
+RewriteRule ^ogrenme-deneyimi/(.*?)$ index.php?sayfa=ogrenme-deneyimi&seo=$1 [L,QSA]
+RewriteRule ^destekleme-yollari.html$ index.php?sayfa=destekleme-yollari [L,QSA]
+RewriteRule ^destekleme-yollari(/?)$ index.php?sayfa=destekleme-yollari [L,QSA]
+RewriteRule ^destekleme-yolu/(.*).html$ index.php?sayfa=destekleme-yolu&seo=$1 [L,QSA]
+RewriteRule ^destekleme-yolu/(.*?)$ index.php?sayfa=destekleme-yolu&seo=$1 [L,QSA]
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 128M
+   php_value post_max_size 8M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php81"
+   php_value upload_max_filesize 2M
+   php_flag zlib.output_compression Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 128M
+   php_value post_max_size 8M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php81"
+   php_value upload_max_filesize 2M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit

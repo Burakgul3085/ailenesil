@@ -1,0 +1,8 @@
+# GitHub tek dosyada 100 MB siniri. Orijinal cPanel zip yedekleri yerelde kalir.
+*.zip
+
+# Canli veritabani sifresi ve kisi verisi (TC, bagis, yonetici sifreleri).
+00_ORIJINAL_YEDEKLER/baglan.php
+00_ORIJINAL_YEDEKLER/*.sql
+01_CALISMA/veritabani/ailevenesilakade_vt.sql
+01_CALISMA/veritabani/.imported

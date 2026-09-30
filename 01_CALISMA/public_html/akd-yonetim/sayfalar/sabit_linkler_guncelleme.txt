@@ -1,0 +1,29 @@
+SABIT LİNKLER SAYFASI GÜNCELLEME NOTU
+========================================
+
+yonetim/sayfalar/sabit_linkler.php dosyasına aşağıdaki input alanlarını ekleyin:
+
+KONUM: Form içine, mevcut URL alanlarının yanına
+
+
+<!-- Bağış Modül URL'leri -->
+<div class="form-group row">
+	<label class="col-sm-3 col-form-label">Bağış Modülleri URL</label>
+	<div class="col-sm-9">
+		<input type="text" class="form-control form-control-sm" value="<?php echo $Sonuc['bagismodulurl'];?>" name="bagismodulurl" placeholder="bagis-moduller">
+		<small class="form-text text-muted">Örnek: bagis-moduller veya bagis-kampanyalari</small>
+	</div>
+</div>
+
+<div class="form-group row">
+	<label class="col-sm-3 col-form-label">Bağış Kampanya Detay URL</label>
+	<div class="col-sm-9">
+		<input type="text" class="form-control form-control-sm" value="<?php echo $Sonuc['bagismoduldetayurl'];?>" name="bagismoduldetayurl" placeholder="bagis-kampanya">
+		<small class="form-text text-muted">Örnek: bagis-kampanya veya kampanya</small>
+	</div>
+</div>
+
+
+NOT: Bu alanlar SQL ile otomatik eklenecek. Sadece düzenlenebilmesi için form alanı gerekli.
+
+

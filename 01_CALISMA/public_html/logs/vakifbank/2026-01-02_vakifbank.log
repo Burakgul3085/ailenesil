@@ -1,0 +1,335 @@
+
+================================================================================
+Order ID: 202601020108003399
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 01:08:00
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 01:08:00",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601020108003399",
+    "amount": "1.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "176.55.115.117",
+    "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021048444039
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 10:48:44
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 10:48:44",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021048444039",
+    "amount": "42.92",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://www.nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "78.190.151.20",
+    "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 
+Type: BANK_RESPONSE
+Timestamp: 2026-01-02 10:49:05
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 10:49:05",
+    "type": "BANK_RESPONSE",
+    "order_id": "",
+    "status": "FAILED",
+    "response_code": "TechnicalException",
+    "response_message": "Required data element is missing or not in correct format : threeDSRequestorURL",
+    "transaction_id": "",
+    "md_status": "N/A",
+    "error_code": "TechnicalException - Required data element is missing or not in correct format : threeDSRequestorURL",
+    "full_response": {
+        "Rc": "TechnicalException",
+        "Message": "Required data element is missing or not in correct format : threeDSRequestorURL",
+        "TransactionId": "",
+        "ErrorCode": "TechnicalException - Required data element is missing or not in correct format : threeDSRequestorURL"
+    },
+    "ip_address": "78.190.151.20"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021124323297
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 11:24:32
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 11:24:32",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021124323297",
+    "amount": "500.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "159.146.55.76",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021513341330
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 15:13:34
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 15:13:34",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021513341330",
+    "amount": "500.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "159.146.55.76",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021514429544
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 15:14:42
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 15:14:42",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021514429544",
+    "amount": "500.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "159.146.55.76",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021516024725
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 15:16:02
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 15:16:02",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021516024725",
+    "amount": "500.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "159.146.55.76",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021531598311
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 15:31:59
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 15:31:59",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021531598311",
+    "amount": "500.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "78.173.7.211",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021536497999
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 15:36:49
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 15:36:49",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021536497999",
+    "amount": "23.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "78.173.7.211",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601021541593816
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 15:41:59
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 15:41:59",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601021541593816",
+    "amount": "500.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "78.173.7.211",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202601022230206574
+Type: PAYMENT_REQUEST
+Timestamp: 2026-01-02 22:30:20
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2026-01-02 22:30:20",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202601022230206574",
+    "amount": "1.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "176.220.103.232",
+    "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36"
+}
+================================================================================

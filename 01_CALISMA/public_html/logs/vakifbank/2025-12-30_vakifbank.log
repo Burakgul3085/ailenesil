@@ -1,0 +1,56 @@
+
+================================================================================
+Order ID: 202512282342338742
+Type: PAYMENT_REQUEST
+Timestamp: 2025-12-28 23:42:33
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2025-12-28 23:42:33",
+    "type": "PAYMENT_REQUEST",
+    "order_id": "202512282342338742",
+    "amount": "10.00",
+    "currency": "0949",
+    "merchant_id": "8220",
+    "username": "aksaapi",
+    "transaction_security": "3",
+    "has_threeDSRequestorURL": "YES",
+    "threeDSRequestorURL": "https://nisaulaksa.org.tr/vakifbank_callback.php",
+    "browser_info": {
+        "javaEnabled": "N/A",
+        "javascriptEnabled": "N/A",
+        "language": "N/A",
+        "colorDepth": "N/A",
+        "screenHeight": "N/A",
+        "screenWidth": "N/A",
+        "timezone": "N/A"
+    },
+    "test_mode": "prod",
+    "ip_address": "78.173.7.211",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+}
+================================================================================
+
+================================================================================
+Order ID: 202512282342338742
+Type: BANK_RESPONSE
+Timestamp: 2025-12-28 23:42:57
+--------------------------------------------------------------------------------
+{
+    "timestamp": "2025-12-28 23:42:57",
+    "type": "BANK_RESPONSE",
+    "order_id": "202512282342338742",
+    "status": "SUCCESS",
+    "response_code": "00",
+    "response_message": "İşlem Başarılı",
+    "transaction_id": "202512282342338742",
+    "md_status": "N/A",
+    "error_code": "",
+    "full_response": {
+        "Rc": "00",
+        "Message": "İşlem Başarılı",
+        "TransactionId": "202512282342338742",
+        "ErrorCode": ""
+    },
+    "ip_address": "78.173.7.211"
+}
+================================================================================

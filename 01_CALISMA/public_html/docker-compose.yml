@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: ailevenesil_app
+    ports:
+      - "8010:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: ailevenesilderne_vt
+      DB_USER: ailevenesilderne_vt
+      DB_PASS: ""
+    restart: unless-stopped
+
+  db:
+    image: mariadb:10.11
+    container_name: ailevenesil_db
+    command: --character-set-server=latin1 --collation-server=latin1_swedish_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ailevenesilderne_vt
+      MYSQL_USER: ailevenesilderne_vt
+      MYSQL_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./migrations/ailevenesilderne_vt.sql:/docker-entrypoint-initdb.d/a-init.sql:ro
+      - ./docker/mysql/docker-overrides.sql:/docker-entrypoint-initdb.d/z-docker-overrides.sql:ro
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+volumes:
+  db_data:

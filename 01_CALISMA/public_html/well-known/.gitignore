@@ -1,0 +1,6 @@
+backup
+.git
+uploads
+diff_fixes_vs_main.zip
+diff-zip.sh
+ig_cache/*

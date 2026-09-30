@@ -1,0 +1,31 @@
+Aile ve Nesil Akademi — yedek duzeni
+=====================================
+
+00_ORIJINAL_YEDEKLER
+  cPanel'den gelen dosyalar. Buraya dokunulmaz.
+  - ailevenesilakademi-public-html-2026-09-30.zip  yayindaki sitenin tam kopyasi
+  - well-known.zip  Mac'ten alinmis ikinci kopya (__MACOSX ile). Calisma kopyasi degil.
+  - ailevenesilakade_genel.sql  veritabani, 30 Eyl 2026 10:30:54 (yerelde bu kullanilir)
+  - ailevenesilakade_ozel.sql   ayni veritabani, 24 saniye onceki disa aktarma
+  - baglan.php  kokteki baglanti dosyasi
+
+01_CALISMA
+  public_html   yayindaki site. eskiller klasoru (eski1/eski2/eski3) buraya alinmadi.
+  veritabani    genel SQL ve yerel adres ayari
+  router.php    PHP yerlesik sunucusunda adres yonlendirmesi
+
+Site nasil calisir
+  Ziyaretci adresi .htaccess ile index.php?sayfa=... olur.
+  index.php  _class/baglan.php ve _class/fonksiyon.php yukler, sonra tema/genel/index.php acar.
+  Yonetim paneli klasoru: akd-yonetim
+  Veritabani: MariaDB, adi ailevenesilakade_vt
+  Tema: tema/genel
+
+03_SUNUCU
+  VPS adimi icin bos. Yerel calisma dogrulanmadan sunucuya alinmaz.
+
+Yerel adres
+  Site:  http://127.0.0.1:8080/
+  Panel: http://127.0.0.1:8080/akd-yonetim/giris.php
+  Tekrar acmak icin: 01_CALISMA\baslat.ps1
+  Veritabani bu klasorde degil. MariaDB verisi C:\tools\mariadb-data icinde, OneDrive disinda.

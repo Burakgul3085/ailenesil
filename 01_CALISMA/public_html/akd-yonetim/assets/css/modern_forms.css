@@ -1,0 +1,411 @@
+/* Modern Form Tasarımı - Tüm Form Sayfaları İçin Ortak Stil */
+
+.modern-form-container {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.modern-form-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.modern-form-header {
+    background: linear-gradient(135deg, #000000 0%, #cacaca 100%);
+    color: white;
+    padding: 25px 30px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+}
+
+.modern-form-header h4 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modern-form-body {
+    padding: 30px;
+}
+
+.modern-form-section {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #f1f3f5;
+}
+
+.modern-form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.modern-form-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #667eea;
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+}
+
+.modern-form-section-title i {
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.modern-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.modern-form-group {
+    margin-bottom: 0;
+}
+
+.modern-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.modern-form-group label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.modern-form-group label .text-danger {
+    color: #e74c3c;
+}
+
+.modern-form-group .form-control,
+.modern-form-group .form-control-sm,
+.modern-form-group select.form-control {
+    border-radius: 8px;
+    border: 1.5px solid #dee2e6;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.modern-form-group .form-control:focus,
+.modern-form-group .form-control-sm:focus,
+.modern-form-group select.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+    outline: none;
+}
+
+.modern-form-group small.form-text {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.modern-file-upload {
+    background: #f8f9fa;
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.modern-file-upload:hover {
+    border-color: #667eea;
+    background: #e3f2fd;
+}
+
+.modern-file-upload .input-group {
+    margin-top: 10px;
+}
+
+.modern-image-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.modern-image-preview img {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.modern-form-actions {
+    background: #f8f9fa;
+    padding: 20px 30px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.modern-btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.modern-btn i {
+    font-size: 1rem;
+}
+
+.modern-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.modern-btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.modern-btn-success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.modern-btn-success:hover {
+    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.modern-btn-light {
+    background: white;
+    color: #495057;
+    border: 1.5px solid #dee2e6;
+}
+
+.modern-btn-light:hover {
+    background: #f8f9fa;
+    border-color: #adb5bd;
+    color: #495057;
+    text-decoration: none;
+}
+
+.modern-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.modern-switch-wrapper label {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.modern-seo-card {
+    background: linear-gradient(135deg, #757275 0%, #665355 100%);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.modern-seo-card .card-header {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0 0 15px 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.modern-seo-card .card-header h5 {
+    margin: 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modern-seo-card .card-body {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modern-seo-card .form-group {
+    margin-bottom: 20px;
+}
+
+.modern-seo-card .form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .modern-form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modern-form-body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-form-container {
+        padding: 15px;
+    }
+    
+    .modern-form-header {
+        padding: 20px;
+    }
+    
+    .modern-form-header h4 {
+        font-size: 1.3rem;
+    }
+    
+    .modern-form-actions {
+        flex-direction: column;
+    }
+    
+    .modern-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Switch Toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider { 
+    background-color: #667eea;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Textarea */
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Select */
+select.form-control {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* Custom Backdrop */
+.custom-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+
+/* Input Group */
+.input-group-append .btn {
+    border-left: 0;
+}
+
+.input-group .form-control:not(:first-child) {
+    border-left: 0;
+}
+
+/* Light Gallery */
+.lightGallery img {
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+
+.lightGallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Popover */
+.popover {
+    z-index: 1060;
+}
+
+/* File Upload */
+.file-upload-default {
+    display: none;
+}
+
+.file-upload-info {
+    background-color: white;
+}
+
+/* Tags Input */
+#tags {
+    width: 100%;
+}
+
