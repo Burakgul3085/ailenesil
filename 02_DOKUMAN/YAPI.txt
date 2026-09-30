@@ -1,31 +1,253 @@
-Aile ve Nesil Akademi — yedek duzeni
-=====================================
+Aile ve Nesil Akademi — proje yapisi
+====================================
+Bu dosya, repoyu baska bir web sitesi icin sablon olarak klonladiginda
+once okunmasi icindir. Canli site: https://www.ailevenesilakademi.com/
+Repo: https://github.com/Burakgul3085/ailenesil  (gizli depo, dal: main)
+Calisan kopya: 01_CALISMA
+Orijinal cPanel yedegine dokunma: 00_ORIJINAL_YEDEKLER
 
+Bu bir PHP CMS'tir. Ayri bir Node/React uygulamasi yoktur.
+On yuz ve yonetim paneli ayni veritabanini kullanir.
+Icerik (sayfa, menu, haber, bagis, logo, site adresi) cogunlukla
+veritabanindadir; PHP dosyalari iskelet ve gorunumdur.
+
+
+1. Klasor haritasi
+------------------
 00_ORIJINAL_YEDEKLER
-  cPanel'den gelen dosyalar. Buraya dokunulmaz.
-  - ailevenesilakademi-public-html-2026-09-30.zip  yayindaki sitenin tam kopyasi
-  - well-known.zip  Mac'ten alinmis ikinci kopya (__MACOSX ile). Calisma kopyasi degil.
-  - ailevenesilakade_genel.sql  veritabani, 30 Eyl 2026 10:30:54 (yerelde bu kullanilir)
-  - ailevenesilakade_ozel.sql   ayni veritabani, 24 saniye onceki disa aktarma
-  - baglan.php  kokteki baglanti dosyasi
+  cPanel'den indirilen dokunulmaz yedek.
+  ailevenesilakade_genel.sql     veritabani, 30 Eyl 2026 10:30:54
+  ailevenesilakade_ozel.sql      ayni veritabani, 24 saniye onceki aktarma
+  baglan.php                     canli sunucunun baglanti dosyasi
+  *.zip                          repoda yok. GitHub tek dosyada 100 MB siniri.
+                                 Buyuk zip'ler sitenin sikistirilmis kopyasi;
+                                 acilmis halleri 01_CALISMA icindedir.
 
 01_CALISMA
-  public_html   yayindaki site. eskiller klasoru (eski1/eski2/eski3) buraya alinmadi.
-  veritabani    genel SQL ve yerel adres ayari
-  router.php    PHP yerlesik sunucusunda adres yonlendirmesi
+  baslat.ps1                     yerel MariaDB + PHP sunucusunu acar
+  veritabani/ailevenesilakade_vt.sql
+                                 yerelde ice aktarilan döküm (genel sql ile ayni icerik)
+  veritabani/local-overrides.sql
+                                 SADECE yerel. HTTPS yonlendirmesini kapatir,
+                                 site_url degerini http://127.0.0.1:8080/ yapar,
+                                 sabit_url.durum degerini 0 yapar.
+                                 Bu dosyayi canli sunucuya uygulama.
+  veritabani/.imported           döküm bir kez aktarildi isareti. Silinirse
+                                 baslat.ps1 veritabanini bastan yukler.
+  public_html                    sitenin kok dizini (cPanel public_html)
 
-Site nasil calisir
-  Ziyaretci adresi .htaccess ile index.php?sayfa=... olur.
-  index.php  _class/baglan.php ve _class/fonksiyon.php yukler, sonra tema/genel/index.php acar.
-  Yonetim paneli klasoru: akd-yonetim
-  Veritabani: MariaDB, adi ailevenesilakade_vt
-  Tema: tema/genel
+02_DOKUMAN
+  YAPI.txt                       bu dosya
 
 03_SUNUCU
-  VPS adimi icin bos. Yerel calisma dogrulanmadan sunucuya alinmaz.
+  Bos. VPS adimi icin. Yerel site dogrulanmadan buraya deploy yazilmaz.
 
-Yerel adres
-  Site:  http://127.0.0.1:8080/
+.gitignore
+  Yalnizca *.zip disarida kalir.
+
+
+2. Istek nasil akar
+-------------------
+Ziyaretci adresi
+  .htaccess  ->  index.php?sayfa=...&id=...&lang=...
+  PHP yerlesik sunucusu .htaccess okumaz. router.php ayni RewriteRule
+  satirlarini uygular. Apache/cPanel/VPS ortaminda router.php kullanilmaz;
+  .htaccess yeter.
+
+index.php sirasi
+  1. _class/baglan.php     veritabani, oturum dili, site sabitleri
+  2. _class/fonksiyon.php  ortak fonksiyonlar
+  3. _class/class.upload.php ve simple_html_dom.php
+  4. language/dil_{id}.php
+  5. _class/seo.php
+  6. Bakim kapaliysa veya yonetici oturumu varsa tema/genel/index.php
+     Bakim aciksa tema/genel/bakimda.php
+
+tema/genel/index.php
+  Ust menu, alt menu ve govdeyi basar.
+  $_GET['sayfa'] degerini sabit_url tablosundaki slug ile karsilastirir ($htc).
+  Eslesen sayfa tema/genel/pages/*.php dosyasidir.
+  Ornek: sayfa=haber  ->  pages/haber_detay.php
+  Slug bos veya anasayfa ise pages/anasayfa.php.
+
+Yonetim
+  Klasor adi veritabanindan gelir: ayarlar.yonetim = akd-yonetim
+  Sabit: define("yonetim", ...)
+  Giris: /akd-yonetim/giris.php  (yerelde /akd-yonetim/giris.html de rewrite edilir)
+  Panel sayfalari: akd-yonetim/index.php?sayfa=haber-ekle
+  Akd .htaccess, haber-duzenle/12.html gibi adresleri
+  index.php?sayfa=haber-ekle&islem=duzenle&id=12 yapar.
+  Her yonetim ekrani akd-yonetim/sayfalar/ altinda bir PHP dosyasidir.
+  Kaydetme islemleri cogunlukla _class/yonetim_islem.php icindedir.
+  Oturum: kullanici tablosu. Oturumda sifre alani da tasinir;
+  yeni sablon kurulumunda yonetici sifrelerini degistir.
+
+
+3. On yuz sayfalari (tema/genel/pages)
+---------------------------------------
+anasayfa, sayfalar, haberler, haber_detay, haber_kategori,
+projeler, proje_detay, proje_kategori, hizmetler, hizmet_detay,
+birimler, birim_detay, duyurular, duyuru_detay, etkinlikler, etkinlik_detay,
+foto_galeri, foto, video_galeri, video, dosyalar, iletisim, ara,
+bagis, bagis_detay, bagis_moduller, bagis_modul_detay, bagis_odeme,
+bagis_sepet, bagis_sonuc, bagis_tekil_sayfa,
+aidat, aidat_listesi, aidat_odeme, aidat_sonuc,
+programlar, program_detay, karakter_programlari, karakter_program_detay,
+ogrenme_deneyimi, ogrenme_deneyimi_detay, destekleme_yollari,
+faaliyet_raporlari, meclis_kararlari, ihaleler, ilanlar, okullar,
+randevu, profil_detay, profil_kategori, mizac_testi, etki_erisim,
+hesap_numaralarimiz, 404.
+
+Yeni bir ziyaretci sayfasi eklerken uc yeri birlikte degistir:
+  tema/genel/pages/YENI.php
+  tema/genel/index.php icindeki switch ($htc slug -> dosya)
+  kok .htaccess RewriteRule (ve gerekirse sabit_url tablosu / yonetimdeki sabit linkler)
+PHP yerlesik sunucu .htaccess'i router.php uzerinden okudugu icin
+ayri bir router kurali yazmaya gerek yoktur.
+
+
+4. Yonetim sayfalari (akd-yonetim/sayfalar)
+--------------------------------------------
+Icerik: haber, sayfa, proje, hizmet, birim, duyuru, etkinlik, ilan, ihale,
+galeri, video, slider, popup, dosya, profil, program, karakter programi,
+ogrenme deneyimi, destekleme yollari, faaliyet, meclis karari, uzman gorusu.
+Bagis: bagis, bagis kategorisi, bagis modulu, bagis turu, gelen bagislar, aidat.
+Menu: header, footer, top, orta, slider, kolay menu.
+Ayar: genel, modul, limit, api, mail, sms, sosyal medya, sanal pos,
+iletisim, bakim, arkaplan, anasayfa alan siralama, sabit linkler, diller.
+Kisiler: yoneticiler, rehber, mesajlar, randevu, hamiler, yetimler, sehir, sinif.
+Diger: toplu sms/email, bildirim, test/mizac, not defteri, sertifikalar.
+
+Yeni yonetim ekrani:
+  akd-yonetim/sayfalar/DOSYA.php
+  akd-yonetim/.htaccess icine duzenle adresi
+  menu linki panel sablonunda
+  kayit/silme _class/yonetim_islem.php
+
+
+5. Veritabani
+-------------
+Motor: MariaDB 10.11. Ad: ailevenesilakade_vt. Karakter: utf8mb4.
+Yerel sunucu bu klasorde degil. baslat.ps1 veriyi
+C:\tools\mariadb-10.11.19-winx64 altinda, OneDrive disinda tutar.
+
+Baglanti (_class/baglan.php) ortam degiskeninden okur:
+  DB_HOST  yoksa 127.0.0.1
+  DB_NAME  yoksa ailevenesilakade_vt
+  DB_USER  yoksa root
+  DB_PASS  yoksa bos
+Canli sifre kodun icine yazilmaz. Canli yedek
+00_ORIJINAL_YEDEKLER/baglan.php icindedir. Yeni sitede o sifreyi kopyalama;
+yeni veritabani kullanicisi ac.
+
+Onemli tablolar
+  ayarlar          site_url, site_baslik, site_tema, yonetim klasor adi, logo, iletisim
+  moduller         bakim ve ozellik anahtarlari. alan9 = bakim durumu (define durum)
+  sabit_url        SEO slug'lari. PHP'de $htc dizisi. durum=1 iken index.php .htaccess'i yeniden yazar
+  diller           anadil bayragi. language/dil_1.php Turkce paket
+  kullanici        yoneticiler
+  menu tablolari   header, footer, top, orta, slider, kolay, baskan
+  icerik           sayfalar, haberler, haber_kategori, projeler, hizmetler, birimler,
+                   duyurular, etkinlikler, foto_galeri, videogaleri, dosyalar, slider
+  bagis            bagislar, bagis_kategori, bagis_moduller, bagis_turleri,
+                   bagis_odeme, bagiscilar, aidatlar, aidat_odemeler
+  yetim / hami     yetim sponsorluk akisi
+  sanal pos        magaza no, parola, anahtar, test modu (ayri tablo, baglan.php kart olarak okur)
+  mail / sms       sunucu ve gonderen bilgisi
+
+Dökümde bu dernegin gercek sayfalari, bagis ve uye kayitlari vardir.
+Baska bir siteye sablon olurken kisi, bagis, TC ve odeme satirlarini tasima.
+Tasiyacaksan yalnizca tablo yapisini (CREATE TABLE) al, INSERT'leri yeni icerikle doldur.
+Menu ve ayarlar.site_url degerlerini canli SQL icinde localhost yapma.
+Yerel adres yalnizca local-overrides.sql ile uygulanir. Boylece VPS'e
+giden döküm ziyaretciyi 127.0.0.1 adresine gondermez.
+
+migrations/ altindaki sql dosyalari eski eklerdir
+(mizac testi, karakter programi, icerik tipi). Guncel tam döküm
+01_CALISMA/veritabani/ailevenesilakade_vt.sql dosyasidir.
+docker-compose.yml baska bir veritabani adi kullanir (ailevenesilderne_vt)
+ve su anki yerel calismanin yolu degildir. Yerel yol baslat.ps1'dir.
+
+
+6. Tema, gorsel, dil
+--------------------
+Tek tema: tema/genel. Adi ayarlar.site_tema icinden gelir.
+define("tema") = tema/genel
+Sablon dosyalari: tema/genel/index.php (iskelet), pages/ (govde), assets/ (css, js, bower).
+Yuklenen gorseller: tema/genel/uploads/{logo,haberler,slider,bagislar,...}
+Baska yuklemeler: public_html/uploads/{dosyalar,files,thumbs}
+Dil paketi: language/dil_1.php (on yuz), language/admin_dil.php (panel).
+Adres ondeki en veya ar, .htaccess ile lang parametresine doner.
+Panelden metin degistirmek, PHP'deki sabit metinden once gelir; once tabloya bak.
+
+index.php icinde cemetery_f bos birakildi.
+Eski kopyada bu fonksiyon tema ve yonetim klasorunu silebiliyordu.
+Geri acma.
+
+
+7. Odeme, cron, dis servis
+--------------------------
+paytr.php, paytr_tekil_bagis.php     PayTR donus adresleri
+vakifBank.php, vakifbank_callback.php  VakifBank
+bagis_bildirim.php, sepete-ekle.php, widget.php, yetim-takip.php
+update_currency.php, ig_proxy.php, sitemap.php, dildegis.php
+cron_jobs/cron_aylik_kontrol.php
+cron_jobs/odeme_hatirlatma_cron.php
+cron_jobs/sponsorluk_odeme_kontrolu.php
+_class/YetimSponsorlukYoneticisi.php, Bildirim.php, exchange_rates.php,
+country_detector.php, AI.php, site_islem.php
+ig_cache/  Instagram onbellegi. Silinmesi siteyi bozmaz; yeniden dolar.
+
+Yeni sitede odeme magaza anahtari, mail ve SMS sifreleri panelden
+yeniden girilir. Eski dernegin pos bilgisini yeni domaine tasima.
+
+
+8. Yerelde calistirma
+---------------------
+Gereken programlar (repo disi):
+  PHP 8, pdo_mysql. Bu makinede C:\tools\php85\php.exe
+  MariaDB 10.11. Bu makinede C:\tools\mariadb-10.11.19-winx64
+
+Acilis: 01_CALISMA\baslat.ps1
+  MariaDB kapaliysa acar.
+  .imported yoksa veritabanini olusturur, SQL dökümünü ve local-overrides.sql yukler.
+  PHP sunucusu: http://127.0.0.1:8080/   router: public_html/router.php
   Panel: http://127.0.0.1:8080/akd-yonetim/giris.php
-  Tekrar acmak icin: 01_CALISMA\baslat.ps1
-  Veritabani bu klasorde degil. MariaDB verisi C:\tools\mariadb-data icinde, OneDrive disinda.
+
+MAMP veya baska bir MySQL 3306 portunu tutuyorsa yerel MariaDB ayaga kalkmaz.
+Iki sunucuyu ayni anda ayni porta baglama.
+
+Canli site bu calisma sirasinda kapatilmaz. 03_SUNUCU bos kalir,
+yerel dogrulama bitmeden VPS'e tasima yapilmaz.
+
+
+9. Baska proje icin sablon checklist
+-------------------------------------
+Klonla, sonra sirayla degistir:
+
+  Veritabani adi ve kullanicisi     yeni degerler. Eski sifreyi kullanma.
+  _class/baglan.php                 ortam degiskeni kalsin; varsayilan adi guncelle.
+  ayarlar                           site_url, site_baslik, firma_adi, logo, telefon, adres
+  ayarlar.yonetim                   panel klasor adini degistirirsen klasoru de yeniden adlandir
+  ayarlar.site_tema                 baska tema klasoru acarsan
+  kullanici                         eski yoneticileri sil, yeni sifre koy
+  moduller.alan9                    bakim. 0 kapali, site acik.
+  sabit_url                         yeni slug'lar. Canliya cikinca durum alanini
+                                    localhost'a gore birakma.
+  language/dil_1.php                arayuz metinleri
+  tema/genel/uploads/logo           logo ve favicon
+  tema/genel/index.php              sadece yerlesim degisecekse
+  .htaccess                         yeni icerik turu eklenirse
+  pos, mail, sms tablolari          yeni sitenin kendi hesaplari
+  cron_jobs                         yeni sunucuda zamanlayiciya bagla
+  00_ORIJINAL_YEDEKLER              yeni projeye tasima. Bu dernegin yedegidir.
+
+Dokunma, once oku:
+  index.php'nin cemetery_f bolumu
+  index.php'nin .htaccess'i bastan yazan blogu (sabit_url.durum != 0 iken calisir)
+  local-overrides.sql (yalniz yerel)
+  router.php (yalniz PHP yerlesik sunucusu)
+
+Repoda olmayan ve calismak icin gerekmeyen dosyalar yalnizca zip arsivleridir.
+Kod, tema, gorsel, SQL döküm ve baglanti dosyasi repodadir.
+PHP ve MariaDB programlari repoda degildir; her makinede ayri kurulur.
