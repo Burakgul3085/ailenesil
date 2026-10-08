@@ -1,0 +1,68 @@
+Hata notlari
+=============
+Bu dosya kodu degistirmez. Yayindan once ve sonra yapilan taramalar buraya eklenir.
+Henuz duzeltilmedi. Duzeltme, site yayinda olduktan sonra repoda yapilip sunucuya cekilecek.
+
+Tarama: 8 Ekim 2026
+Adres: http://127.0.0.1:8080/
+Sonuc: Ana sayfa, menu, logo, atolyeler, haberler ve yonetim giris sayfasi acildi.
+       Asagidakiler disinda kontrol edilen sayfalar 200 dondu.
+
+
+1. Randevu sayfasi 500
+----------------------
+Adres: /randevu
+Dosya: 01_CALISMA/public_html/tema/genel/pages/randevu.php
+Satir: 442, ayni kalip 452 ve 462
+Belirti: PHP Parse error, unexpected identifier "txt555"
+Sebep: echo icindeki tek tirnakli metne <?=@$dil['txt555'];?> yazilmis.
+       Tirnak, echo metnini erken kapatip sayfanin tamamini dusuruyor.
+       Ana menude randevu linki yok. Sayfa dogrudan adresle acilinca kiriliyor.
+Durum: duzeltilmedi
+
+
+2. Instagram kutusu yerelde bos
+-------------------------------
+Belirti: Ana sayfada "Postlar yuklenemedi."
+Kayit: IG cURL error, SSL certificate unable to get local issuer certificate (20)
+Sebep: Bu bilgisayardaki PHP, HTTPS sertifikasini dogrulayamadi.
+       Dosya eksik degil. Sunucuda sertifika paketi varken ayrica bakilacak.
+Durum: yerel ortam. Sunucuda tekrar kontrol edilecek.
+
+
+3. sitemap.xml acilmiyor
+------------------------
+Adres: /sitemap.xml -> 404
+Adres: /sitemap.php -> 200, XML donuyor
+Dosya: 01_CALISMA/public_html/.htaccess
+Sebep: sitemap.xml icin kok kurali yok. Yalnizca en/ ve ar/ sitemap kurallari var.
+Durum: duzeltilmedi. Yayinda yonlendirme eklenecek.
+
+
+4. PHP uyarilari, sayfa dusmuyor
+--------------------------------
+Bu uyarilar sayfayi 500 yapmiyor. Icerik yine geliyor.
+Ilerideki taramada ayni satirlar duruyorsa yeni hata sayilmaz.
+
+tema/genel/pages/haberler.php satir 15: tanımsız haberlerurl
+tema/genel/pages/haberler.php satir 30: false uzerinde dizi
+tema/genel/pages/programlar.php satir 29
+tema/genel/pages/iletisim.php satir 18
+tema/genel/pages/profil_kategori.php satir 52
+tema/genel/pages/program_detay.php satir 58
+tema/genel/pages/birim_detay.php satir 40
+tema/genel/pages/destekleme_yollari.php satir 9
+tema/genel/pages/karakter_programlari.php satir 16 ve 29
+tema/genel/pages/duyurular.php satir 16 ve 30
+tema/genel/pages/projeler.php satir 16 ve 30
+tema/genel/pages/hizmetler.php satir 16 ve 30
+_class/fonksiyon.php giris sayfasinda: tanımsız seed_length, seed, sifre (713, 714, 729) ve ub (135, 142)
+
+
+Yayin notu, hata degil
+----------------------
+Yerel veritabanindaki site adresi http://127.0.0.1:8080/
+Bu yalnizca bu bilgisayar icin. local-overrides.sql sunucuya yuklenmez.
+Dokumdeki adres: ailevenesilakademi.com
+Sunucuda panelden https://www.ailevenesilakademi.com/ yapilacak.
+Bircok menu linki zaten https://ailevenesilakademi.com/ adresine bakiyor.
