@@ -13,6 +13,13 @@ $bildirimt 		= strtotime(cVCLmHLxbS_tr_tarih('Y-m-d H:i:s'));
 
 cemetery_f();
 
+if (isset($_POST['sira']) && trim((string) $_POST['sira']) === '') {
+	$_POST['sira'] = 0;
+}
+if (isset($_POST['durum']) && trim((string) $_POST['durum']) === '') {
+	$_POST['durum'] = 0;
+}
+
 ##GET POST VARMI ##
 if(empty($_POST) && empty($_GET))
 {

@@ -4,8 +4,11 @@ session_start();
 require_once('../../_class/baglan.php');
 require_once('../../_class/fonksiyon.php');
 		
-	$id 	= $_POST['id'];
-	$ilceid = $_POST['ilceid'];
+	$id = $_POST['id'] ?? 0;
+	$ilceid = $_POST['ilceid'] ?? '';
+	if ($id === '') {
+		$id = 0;
+	}
 	$dizi 	= array();
 	$geridon= "<option value=''>-Seçiniz-</option>";
 	$geridonb= "<option value=''>-Seçiniz-</option>";

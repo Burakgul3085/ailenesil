@@ -16,7 +16,8 @@ $adminKlasor = '/' . (defined('yonetim') ? yonetim : 'akd-yonetim');
 if ($scriptPath === '/' || $scriptPath === '.' || $scriptPath === $adminKlasor || str_ends_with($scriptPath, $adminKlasor)) {
 	$scriptPath = '';
 }
-$url = $protocol . $_SERVER['HTTP_HOST'] . $scriptPath; 
+$url = $protocol . $_SERVER['HTTP_HOST'] . $scriptPath;
+$panel = rtrim($url, '/') . '/' . (defined('yonetim') ? yonetim : 'akd-yonetim');
 $sayfalink = $protocol.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 ?>
 <?php
@@ -38,7 +39,7 @@ else
 	unset($_SESSION['Yonetim_Sifre']);
 	unset($_SESSION['rutbe']);
 	unset($_SESSION['guvenlik']);
-	header("Location:".$url."/giris.html");
+	header("Location:".$panel."/giris.html");
 	exit();
 }
 ?>
@@ -50,7 +51,7 @@ if($oturumkontrol->rowCount())
 {
 $Bilgilerim = $oturumkontrol->fetch(PDO::FETCH_ASSOC);
 if($Bilgilerim['sifre'] == "1234" || $Bilgilerim['sifre'] == "demo" || $Bilgilerim['sifre'] == "admin" || $Bilgilerim['sifre'] == "123" || $Bilgilerim['sifre'] == "1234" || $Bilgilerim['sifre'] == "123456" || $Bilgilerim['sifre'] == "123" || $Bilgilerim['sifre'] == "user" || $Bilgilerim['sifre'] == "1" ){
-header("Location:".$url."/yonetici-duzenle/".$Bilgilerim['id'].".html");
+header("Location:".$panel."/yonetici-duzenle/".$Bilgilerim['id'].".html");
 exit();	
 }
 	
@@ -62,7 +63,7 @@ else
 	unset($_SESSION['Yonetim_Sifre']);
 	unset($_SESSION['rutbe']);
 	unset($_SESSION['guvenlik']);
-	header("Location:".$url."/giris.html");
+	header("Location:".$panel."/giris.html");
 	exit();
 }
 ?>	
@@ -1707,13 +1708,13 @@ onayliBagiscilariRehbereEkle($db);
 		],
 		toolbar: "responsivefilemanager | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image code | print preview media | forecolor backcolor fontsizeselect emoticons",
 		image_advtab: true ,
-		external_filemanager_path:"<?php echo $url;?>/vendors/filemanager/",
+		external_filemanager_path:"<?php echo $panel;?>/vendors/filemanager/",
 	    filemanager_title:"Dosya Yöneticisi" ,
 		external_plugins: {
-			"responsivefilemanager": "<?php echo $url;?>/vendors/tinymce/plugins/responsivefilemanager/plugin.min.js",
-			"flickr": "<?php echo $url;?>/vendors/tinymce/plugins/flickr/plugin.min.js",
-			"youtube": "<?php echo $url;?>/vendors/tinymce/plugins/youtube/plugin.min.js",
-			"filemanager": "<?php echo $url;?>/vendors/filemanager/plugin.min.js"
+			"responsivefilemanager": "<?php echo $panel;?>/vendors/tinymce/plugins/responsivefilemanager/plugin.min.js",
+			"flickr": "<?php echo $panel;?>/vendors/tinymce/plugins/flickr/plugin.min.js",
+			"youtube": "<?php echo $panel;?>/vendors/tinymce/plugins/youtube/plugin.min.js",
+			"filemanager": "<?php echo $panel;?>/vendors/filemanager/plugin.min.js"
 		},
 		filemanager_access_key:"demo"
 	});
