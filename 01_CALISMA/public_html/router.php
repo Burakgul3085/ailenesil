@@ -13,7 +13,9 @@ if ($uriPath !== '/' && is_file($local)) {
 
 $uzanti = strtolower(pathinfo($uriPath, PATHINFO_EXTENSION));
 $statik = ['css','js','map','png','jpg','jpeg','gif','webp','svg','ico','woff','woff2','ttf','eot','mp4','webm','pdf','xml','json','txt'];
-if ($uzanti !== '' && in_array($uzanti, $statik, true)) {
+$yol = trim($uriPath, '/');
+$siteHaritasi = (bool) preg_match('#^(?:(?:en|ar)/)?sitemap\.xml$#', $yol);
+if ($uzanti !== '' && in_array($uzanti, $statik, true) && !$siteHaritasi) {
 	http_response_code(404);
 	echo 'Dosya yok';
 	return true;

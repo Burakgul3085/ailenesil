@@ -18,7 +18,7 @@ Belirti: PHP Parse error, unexpected identifier "txt555"
 Sebep: echo icindeki tek tirnakli metne <?=@$dil['txt555'];?> yazilmis.
        Tirnak, echo metnini erken kapatip sayfanin tamamini dusuruyor.
        Ana menude randevu linki yok. Sayfa dogrudan adresle acilinca kiriliyor.
-Durum: duzeltilmedi
+Durum: duzeltildi. Uc uyari metni PHP birlestirmesine cevrildi. Sayfanin geri kalani ayni.
 
 
 2. Instagram kutusu yerelde bos
@@ -36,7 +36,7 @@ Adres: /sitemap.xml -> 404
 Adres: /sitemap.php -> 200, XML donuyor
 Dosya: 01_CALISMA/public_html/.htaccess
 Sebep: sitemap.xml icin kok kurali yok. Yalnizca en/ ve ar/ sitemap kurallari var.
-Durum: duzeltilmedi. Yayinda yonlendirme eklenecek.
+Durum: duzeltildi. Kok sitemap.xml kurali .htaccess icine eklendi. router.php bu adresi statik dosya sanip 404 vermesin diye ayrildi.
 
 
 4. PHP uyarilari, sayfa dusmuyor

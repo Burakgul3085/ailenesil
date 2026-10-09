@@ -77,6 +77,7 @@ ErrorDocument 404 /404.html
 
 # --- MULTILANGUAGE RULES ---
 RewriteRule ^(en|ar)/sitemap\.xml$ sitemap.php?lang=$1 [NC,L]
+RewriteRule ^sitemap\.xml$ sitemap.php [NC,L]
 RewriteRule ^(en|ar)/([a-zA-Z0-9\-_]+)\.html$ index.php?lang=$1&sayfa=$2 [L,QSA]
 RewriteRule ^(en|ar)/([a-zA-Z0-9\-_]+)(/?)$ index.php?lang=$1&sayfa=$2 [L,QSA]
 

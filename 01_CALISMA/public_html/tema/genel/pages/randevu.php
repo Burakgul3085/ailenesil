@@ -439,7 +439,7 @@ $kvkkLink = $kvkkSayfa ? $url.'/'.$htc['sayfaurl'].'/'.$kvkkSayfa['seo'].$html :
                     // Başarı mesajı
                     if(isset($_SESSION['randevu_btn']) && $_SESSION['randevu_btn'] == 'yes') {
                         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="fas fa-check-circle"></i> <strong><?=@$dil['txt555'];?></strong> <?=@$dil['txt556'];?>
+                            <i class="fas fa-check-circle"></i> <strong>' . @$dil['txt555'] . '</strong> ' . @$dil['txt556'] . '
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -449,7 +449,7 @@ $kvkkLink = $kvkkSayfa ? $url.'/'.$htc['sayfaurl'].'/'.$kvkkSayfa['seo'].$html :
                     // Hata mesajı
                     elseif(isset($_SESSION['randevu_btn']) && $_SESSION['randevu_btn'] == 'no') {
                         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="fas fa-exclamation-circle"></i> <strong><?=@$dil['txt557'];?></strong> <?=@$dil['txt558'];?>
+                            <i class="fas fa-exclamation-circle"></i> <strong>' . @$dil['txt557'] . '</strong> ' . @$dil['txt558'] . '
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -459,7 +459,7 @@ $kvkkLink = $kvkkSayfa ? $url.'/'.$htc['sayfaurl'].'/'.$kvkkSayfa['seo'].$html :
                     // Boş alan uyarısı
                     elseif(isset($_SESSION['randevu_btn']) && $_SESSION['randevu_btn'] == 'bos') {
                         echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <i class="fas fa-exclamation-triangle"></i> <strong><?=@$dil['txt559'];?></strong> <?=@$dil['txt560'];?>
+                            <i class="fas fa-exclamation-triangle"></i> <strong>' . @$dil['txt559'] . '</strong> ' . @$dil['txt560'] . '
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
