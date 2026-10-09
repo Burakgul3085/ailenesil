@@ -18,9 +18,10 @@ $menubas = $db->query("SELECT * FROM menu WHERE id = '{$menubul['menu_ust']}' AN
 
 // KVKK metni için sayfayı çek
 $KvkkSorgu = $db->prepare("SELECT * FROM sayfalar WHERE seo = ? AND durum = 1 LIMIT 1");
-$KvkkSorgu->execute(array('kvkk-aydinlatma-metni'));
+$KvkkSorgu->execute(array('kvkk'));
 $kvkkSayfa = $KvkkSorgu->fetch(PDO::FETCH_ASSOC);
-$kvkkLink = $kvkkSayfa ? $url.'/'.$htc['sayfaurl'].'/'.$kvkkSayfa['seo'].$html : '#';
+$kvkkYol = ($kvkkSayfa && !empty($htc['sayfaurl'])) ? $htc['sayfaurl'].'/'.$kvkkSayfa['seo'] : 'icerik/kvkk';
+$kvkkLink = rtrim($url, '/').'/'.$kvkkYol.$html;
 ?>
 
 <style>
