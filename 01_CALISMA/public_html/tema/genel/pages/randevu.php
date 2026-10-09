@@ -457,6 +457,15 @@ $kvkkLink = $kvkkSayfa ? $url.'/'.$htc['sayfaurl'].'/'.$kvkkSayfa['seo'].$html :
                         unset($_SESSION['randevu_btn']);
                     }
                     // Boş alan uyarısı
+                    elseif(isset($_SESSION['randevu_btn']) && $_SESSION['randevu_btn'] == 'dolu') {
+                        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-triangle"></i> <strong>Bu saat dolu.</strong> Lütfen başka bir saat seçin.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+                        unset($_SESSION['randevu_btn']);
+                    }
                     elseif(isset($_SESSION['randevu_btn']) && $_SESSION['randevu_btn'] == 'bos') {
                         echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <i class="fas fa-exclamation-triangle"></i> <strong>' . @$dil['txt559'] . '</strong> ' . @$dil['txt560'] . '
@@ -496,8 +505,8 @@ $kvkkLink = $kvkkSayfa ? $url.'/'.$htc['sayfaurl'].'/'.$kvkkSayfa['seo'].$html :
                                 
                                 <!-- Form -->
                                 <div class="randevu-form-container">
-                                    <form id="randevuForm" action="<?php echo $url; ?>/_class/site_islem.php" method="POST">
-                                        <input type="hidden" name="randevuurl" value="<?php echo $url.'/'.$htc['randevuurl'].$html; ?>">
+                                    <form id="randevuForm" action="<?php echo rtrim($url, '/'); ?>/_class/site_islem.php" method="POST">
+                                        <input type="hidden" name="randevuurl" value="<?php echo rtrim($url, '/').'/'.$htc['randevuurl'].$html; ?>">
                                         <input type="hidden" name="kontrol" class="kontrol" value="">
                                         <input type="hidden" name="hizmet_id" id="hizmetId" value="">
                                         <input type="hidden" name="tarih" id="randevuTarih" value="">
@@ -843,11 +852,19 @@ document.addEventListener('DOMContentLoaded', function() {
         container.innerHTML = '';
         
         const times = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+        const tarih = document.getElementById('randevuTarih').value;
         
+        fetch('<?php echo rtrim($url, '/'); ?>/_class/site_islem.php?randevu_dolu=1&tarih=' + encodeURIComponent(tarih))
+            .then(function(response) { return response.json(); })
+            .then(function(dolu) { cizSaatler(Array.isArray(dolu) ? dolu : []); })
+            .catch(function() { cizSaatler([]); });
+        
+        function cizSaatler(dolu) {
         times.forEach(time => {
             const slot = document.createElement('div');
-            slot.className = 'time-slot';
-            slot.textContent = time;
+            const kapali = dolu.indexOf(time) !== -1;
+            slot.className = kapali ? 'time-slot disabled' : 'time-slot';
+            slot.textContent = kapali ? time + ' Dolu' : time;
             
             slot.addEventListener('click', function() {
                 if(this.classList.contains('disabled')) return;
@@ -866,6 +883,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             container.appendChild(slot);
         });
+        }
     }
     
     // İlk takvimi oluştur

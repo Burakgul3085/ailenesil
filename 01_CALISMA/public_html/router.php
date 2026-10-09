@@ -3,7 +3,8 @@
  * PHP yerlesik sunucusu .htaccess okumaz.
  * Kok ve akd-yonetim kurallarini Apache ile ayni sirada uygular.
  */
-$uriPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$istek = preg_replace('#/{2,}#', '/', $_SERVER['REQUEST_URI'] ?? '/');
+$uriPath = parse_url($istek, PHP_URL_PATH) ?: '/';
 $uriPath = rawurldecode($uriPath);
 $local = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, $uriPath);
 

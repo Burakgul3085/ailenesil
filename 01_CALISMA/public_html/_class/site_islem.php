@@ -303,6 +303,22 @@ if(isset($_POST['islem']) && $_POST['islem'] == 'program_talep')
 	exit;
 }
 
+if (isset($_GET['randevu_dolu'])) {
+	header('Content-Type: application/json; charset=utf-8');
+	$parca = explode('-', (string) ($_GET['tarih'] ?? ''));
+	$tarih = (count($parca) === 3) ? $parca[2] . '-' . $parca[1] . '-' . $parca[0] : '';
+	$saatler = [];
+	if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $tarih)) {
+		$doluSorgu = $db->prepare("SELECT saat FROM randevular WHERE tarih = ? AND durum <> 2");
+		$doluSorgu->execute([$tarih]);
+		foreach ($doluSorgu->fetchAll(PDO::FETCH_COLUMN) as $saat) {
+			$saatler[] = substr((string) $saat, 0, 5);
+		}
+	}
+	echo json_encode($saatler);
+	exit;
+}
+
 ## Randevu Kaydet ##
 if(isset($_POST['randevu_btn']))
 {	
@@ -337,8 +353,17 @@ if(isset($_POST['randevu_btn']))
 		{
 			$_SESSION['randevu_btn'] = 'bos';
 			header("Location:".$randevuurl."");
+			exit;
 		}
-		else
+
+		$doluKayit = $db->prepare("SELECT id FROM randevular WHERE tarih = ? AND saat = ? AND durum <> 2 LIMIT 1");
+		$doluKayit->execute([$tarih, $saat]);
+		if ($doluKayit->fetch(PDO::FETCH_ASSOC)) {
+			$_SESSION['randevu_btn'] = 'dolu';
+			header("Location:".$randevuurl."");
+			exit;
+		}
+
 		{
 			// Hizmet bilgisini al
 			$hizmet_adi = '';
@@ -410,12 +435,14 @@ if(isset($_POST['randevu_btn']))
 				], $email, $telefon);
 				
 				$_SESSION['randevu_btn'] = 'yes';
-				header("Location:".$randevuurl."");		
+				header("Location:".$randevuurl."");
+				exit;
 			}
 			else
 			{
 				$_SESSION['randevu_btn'] = 'no';
 				header("Location:".$randevuurl."");
+				exit;
 			}			
 		}
 	}
@@ -423,6 +450,7 @@ if(isset($_POST['randevu_btn']))
 	{
 		$_SESSION['sitedemo'] = 'no';
 		header("Location:".$randevuurl."");
+		exit;
 	}
 }
 
