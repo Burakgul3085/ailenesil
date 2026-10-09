@@ -306,7 +306,10 @@ if(isset($_POST['islem']) && $_POST['islem'] == 'program_talep')
 ## Randevu Kaydet ##
 if(isset($_POST['randevu_btn']))
 {	
-	$hizmet_id 	= isset($_POST['hizmet_id']) ? (int)$_POST['hizmet_id'] : null;
+	$hizmet_id 	= isset($_POST['hizmet_id']) ? (int)$_POST['hizmet_id'] : 0;
+	if ($hizmet_id < 1) {
+		$hizmet_id = null;
+	}
 	$isim 		= strip_tags(trim($_POST['isim']));
 	$telefon 	= strip_tags(trim($_POST['telefon']));
 	$email 		= strip_tags(trim($_POST['email']));
@@ -432,7 +435,10 @@ if(isset($_POST['islem'])) {
     
     // 1. RANDEVU KAYDETME İŞLEMİ
     if($islem == 'randevu_kaydet') {
-        $hizmet_id = isset($_POST['hizmet_id']) ? (int)$_POST['hizmet_id'] : null;
+        $hizmet_id = isset($_POST['hizmet_id']) ? (int)$_POST['hizmet_id'] : 0;
+        if ($hizmet_id < 1) {
+            $hizmet_id = null;
+        }
         $isim = $_POST['isim'] ?? '';
         $telefon = $_POST['telefon'] ?? '';
         $email = $_POST['email'] ?? '';
