@@ -876,7 +876,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             if(currentStep === 1 && hizmetSecimAktif && hizmetSayisi > 0) {
                 if(!document.getElementById('hizmetId').value) {
-                    alert('<?=@$dil['txt561'];?>');
+                    alert(<?= json_encode($dil['txt561'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
                     return;
                 }
             }
@@ -884,11 +884,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const dateStep = hizmetSecimAktif && hizmetSayisi > 0 ? 2 : 1;
             if(currentStep === dateStep) {
                 if(!document.getElementById('randevuTarih').value) {
-                    alert('<?=@$dil['txt562'];?>');
+                    alert(<?= json_encode($dil['txt562'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
                     return;
                 }
                 if(!document.getElementById('randevuSaat').value) {
-                    alert('<?=@$dil['txt563'];?>');
+                    alert(<?= json_encode($dil['txt563'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
                     return;
                 }
             }
@@ -916,7 +916,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const tarih = document.getElementById('randevuTarih').value;
         if(!tarih) {
             e.preventDefault();
-            alert('<?=@$dil['txt562'];?>');
+            alert(<?= json_encode($dil['txt562'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
             return false;
         }
         
@@ -924,7 +924,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const saat = document.getElementById('randevuSaat').value;
         if(!saat) {
             e.preventDefault();
-            alert('<?=@$dil['txt563'];?>');
+            alert(<?= json_encode($dil['txt563'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
             return false;
         }
         
@@ -935,7 +935,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if(!isim || !telefon || !email) {
             e.preventDefault();
-            alert('<?=@$dil['txt560'];?>');
+            alert(<?= json_encode($dil['txt560'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
             return false;
         }
         
@@ -943,7 +943,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(!emailRegex.test(email)) {
             e.preventDefault();
-            alert('<?=@$dil['txt564'];?>');
+            alert(<?= json_encode($dil['txt564'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
             return false;
         }
         
@@ -951,7 +951,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const kvkkCheck = document.getElementById('kvkkCheck');
         if(!kvkkCheck.checked) {
             e.preventDefault();
-            alert('<?=@$dil['txt565'];?>');
+            alert(<?= json_encode($dil['txt565'] ?? '', JSON_UNESCAPED_UNICODE); ?>);
             return false;
         }
         

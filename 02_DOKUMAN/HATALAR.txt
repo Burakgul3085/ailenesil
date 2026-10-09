@@ -19,6 +19,8 @@ Sebep: echo icindeki tek tirnakli metne <?=@$dil['txt555'];?> yazilmis.
        Tirnak, echo metnini erken kapatip sayfanin tamamini dusuruyor.
        Ana menude randevu linki yok. Sayfa dogrudan adresle acilinca kiriliyor.
 Durum: duzeltildi. Uc uyari metni PHP birlestirmesine cevrildi. Sayfanin geri kalani ayni.
+       Takvim ayrica bos kaliyordu: KVKK metnindeki kesme isareti sayfa betigini kiriyordu.
+       Uyari metinleri guvenli bicimde yazildi. Gun secilince saatler geliyor.
 
 
 2. Instagram kutusu yerelde bos
